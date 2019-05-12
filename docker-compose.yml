@@ -1,0 +1,38 @@
+version: '3.0'
+services:
+
+  fluentd:
+    container_name: fluentd
+    image: mrecco/fluentd:v1.3.3
+    entrypoint:
+    - '/bin/sh'
+    - '-c'
+    - |
+      cp -r /conf/*.conf /fluentd/etc/
+      sleep 3
+      /conf/pre-entrypoint.sh
+      exec tini -- /fluentd/entrypoint.sh
+    environment:
+      FLUENT_GRAYLOG_HOST: "graylog.example.com"
+      FLUENT_GRAYLOG_PORT: "12201"
+      FLUENT_GRAYLOG_PROTOCOL: "tcp"
+      SPECIAL_TAG: "some_special_tag"
+    links:
+    - pglog-collector:pglog-collector # Start it at first
+    stop_grace_period: 1s
+    volumes:
+    - "./volumes/fluentd:/conf:ro"
+    - "./volumes/logrotate:/etc/logrotate:ro"
+    - "/run/log/journal:/var/log/journal"
+    - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
+    - "/var/log:/var/log"
+
+  pglog-collector:
+    container_name: pglog-collector
+    image: mrecco/pglog-collector:v1.0.0
+    command:
+    - "-f"
+    - "/var/log/postgresql/postgresql.csv"
+    stop_grace_period: 1s
+    volumes:
+    - "/var/log/postgresql:/var/log/postgresql:ro"

@@ -1,0 +1,40 @@
+2019-05-10 16:26:01.176 UTC,"postgres","postgres",80301,"[local]",5cd5a619.139ad,3,"idle",2019-05-10 16:26:01 UTC,3/2,0,LOG,00000,"statement: SELECT d.datname as ""Name"",
+       pg_catalog.pg_get_userbyid(d.datdba) as ""Owner"",
+       pg_catalog.pg_encoding_to_char(d.encoding) as ""Encoding"",
+       d.datcollate as ""Collate"",
+       d.datctype as ""Ctype"",
+       pg_catalog.array_to_string(d.datacl, E'\n') AS ""Access privileges""
+FROM pg_catalog.pg_database d
+ORDER BY 1;",,,,,,,,"exec_simple_query, postgres.c:975","psql"
+2019-05-10 16:26:00.097 UTC,,,80286,,5cd5a618.1399e,1,,2019-05-10 16:26:00 UTC,,0,LOG,00000,"ending log output to stderr",,"Future log output will go to log destination ""csvlog"".",,,,,,"PostmasterMain, postmaster.c:1298",""
+2019-05-10 16:26:00.639 UTC,,,80295,"[local]",5cd5a618.139a7,2,"",2019-05-10 16:26:00 UTC,,0,LOG,08P01,"incomplete startup packet",,,,,,,,"ProcessStartupPacket, postmaster.c:1915",""
+2019-05-10 16:26:01.166 UTC,,,80301,"[local]",5cd5a619.139ad,1,"",2019-05-10 16:26:01 UTC,,0,LOG,00000,"connection received: host=[local]",,,,,,,,"BackendInitialize, postmaster.c:4209",""
+2019-05-10 16:26:01.170 UTC,"postgres","postgres",80301,"[local]",5cd5a619.139ad,2,"authentication",2019-05-10 16:26:01 UTC,3/1,0,LOG,00000,"connection authorized: user=postgres database=postgres",,,,,,,,"PerformAuthentication, postinit.c:279",""
+2019-05-10 16:26:01.178 UTC,"postgres","postgres",80301,"[local]",5cd5a619.139ad,4,"SELECT",2019-05-10 16:26:01 UTC,3/0,0,LOG,00000,"duration: 2.200 ms",,,,,,,,"exec_simple_query, postgres.c:1219","psql"
+2019-05-10 16:26:01.179 UTC,"postgres","postgres",80301,"[local]",5cd5a619.139ad,5,"idle",2019-05-10 16:26:01 UTC,,0,LOG,00000,"disconnection: session time: 0:00:00.013 user=postgres database=postgres host=[local]",,,,,,,,"log_disconnections, postgres.c:4614","psql"
+2019-05-10 16:26:01.714 UTC,"postgres","postgres",80306,"[local]",5cd5a619.139b2,3,"idle",2019-05-10 16:26:01 UTC,3/4,0,LOG,00000,"statement: SELECT d.datname as ""Name"",
+       pg_catalog.pg_get_userbyid(d.datdba) as ""Owner"",
+       pg_catalog.pg_encoding_to_char(d.encoding) as ""Encoding"",
+       d.datcollate as ""Collate"",
+       d.datctype as ""Ctype"",
+       pg_catalog.array_to_string(d.datacl, E'\n') AS ""Access privileges""
+FROM pg_catalog.pg_database d
+ORDER BY 1;",,,,,,,,"exec_simple_query, postgres.c:975","psql"
+2019-05-10 16:26:01.715 UTC,"postgres","postgres",80306,"[local]",5cd5a619.139b2,4,"SELECT",2019-05-10 16:26:01 UTC,3/0,0,LOG,00000,"duration: 1.387 ms",,,,,,,,"exec_simple_query, postgres.c:1219","psql"
+2019-05-10 16:26:01.716 UTC,"postgres","postgres",80306,"[local]",5cd5a619.139b2,5,"idle",2019-05-10 16:26:01 UTC,,0,LOG,00000,"disconnection: session time: 0:00:00.006 user=postgres database=postgres host=[local]",,,,,,,,"log_disconnections, postgres.c:4614","psql"
+2019-05-10 16:26:02.250 UTC,,,80309,"[local]",5cd5a61a.139b5,1,"",2019-05-10 16:26:02 UTC,,0,LOG,00000,"connection received: host=[local]",,,,,,,,"BackendInitialize, postmaster.c:4209",""
+2019-05-10 16:26:02.252 UTC,"postgres","postgres",80309,"[local]",5cd5a61a.139b5,2,"authentication",2019-05-10 16:26:02 UTC,3/5,0,LOG,00000,"connection authorized: user=postgres database=postgres",,,,,,,,"PerformAuthentication, postinit.c:279",""
+2019-05-10 16:26:02.253 UTC,"postgres","postgres",80309,"[local]",5cd5a61a.139b5,3,"idle",2019-05-10 16:26:02 UTC,3/6,0,LOG,00000,"statement: SELECT d.datname as ""Name"",
+       pg_catalog.pg_get_userbyid(d.datdba) as ""Owner"",
+       pg_catalog.pg_encoding_to_char(d.encoding) as ""Encoding"",
+       d.datcollate as ""Collate"",
+       d.datctype as ""Ctype"",
+       pg_catalog.array_to_string(d.datacl, E'\n') AS ""Access privileges""
+FROM pg_catalog.pg_database d
+ORDER BY 1;",,,,,,,,"exec_simple_query, postgres.c:975","psql"
+2019-05-10 16:26:02.254 UTC,"postgres","postgres",80309,"[local]",5cd5a61a.139b5,4,"SELECT",2019-05-10 16:26:02 UTC,3/0,0,LOG,00000,"duration: 1.253 ms",,,,,,,,"exec_simple_query, postgres.c:1219","psql"
+2019-05-10 16:26:02.255 UTC,"postgres","postgres",80309,"[local]",5cd5a61a.139b5,5,"idle",2019-05-10 16:26:02 UTC,,0,LOG,00000,"disconnection: session time: 0:00:00.005 user=postgres database=postgres host=[local]",,,,,,,,"log_disconnections, postgres.c:4614","psql"
+2019-05-10 16:27:03.138 UTC,,,80534,"127.0.0.1:41136",5cd5a657.13a96,1,"",2019-05-10 16:27:03 UTC,,0,LOG,00000,"connection received: host=127.0.0.1 port=41136",,,,,,,,"BackendInitialize, postmaster.c:4205",""
+2019-05-10 16:27:03.143 UTC,"test","test",80534,"127.0.0.1:41136",5cd5a657.13a96,2,"authentication",2019-05-10 16:27:03 UTC,3/11,0,LOG,00000,"connection authorized: user=test database=test SSL enabled (protocol=TLSv1.2, cipher=ECDHE-RSA-AES256-GCM-SHA384, bits=256, compression=off)",,,,,,,,"PerformAuthentication, postinit.c:274",""
+2019-05-10 16:27:03.144 UTC,"test","test",80534,"127.0.0.1:41136",5cd5a657.13a96,3,"idle",2019-05-10 16:27:03 UTC,3/12,0,LOG,00000,"statement: INSERT INTO test_1 (login,password,email,comment) VALUES ('737yb7fmHGfDXB5tKZ4l','r+Q3hsPuzWccihVfilKk','7RXw5NlUEMHyGe+sJlFt@example.com','VxxBQaj+e1VGuM2mR8P9
+PXN3YSc7uNUGBwqhGZjk')",,,,,,,,"exec_simple_query, postgres.c:975","psql"

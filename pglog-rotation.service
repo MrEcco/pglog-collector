@@ -1,0 +1,11 @@
+[Unit]
+Description=PostgreSQL logs rotator
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+WorkingDirectory=/opt/pglog-collector
+ExecStart=/usr/bin/docker exec -it -e PGUID=$(/usr/bin/id -u postgres) -e PGGID=$(/usr/bin/id -g postgres) fluentd /etc/logrotate/rotate.sh
+TimeoutStartSec=0
