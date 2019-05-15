@@ -21,6 +21,11 @@ See **example.postgresql.conf**: this contain compliant log-related parameters.
 
 See **volumes/logrotate/logrotate.conf**.
 
+You can use in without docker:
+```bash
+sudo -u postgres logrotate -f /path/to/postgresql-logrotate.conf
+```
+
 ### Fluentd
 
 All configured and ready to send to graylog. See **volumes/fluentd** directory.

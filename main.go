@@ -112,7 +112,8 @@ func repairDoubleQuotes(str string) string {
 
 func convertToMap(values []string) map[string]string {
 	retmap := make(map[string]string)
-	retmap["time"] = values[0]                   // log_time timestamp(3) with time zone,
+	// This field just crush log message
+	// retmap["time"] = values[0]                   // log_time timestamp(3) with time zone,
 	retmap["user_name"] = values[1]              // user_name text,
 	retmap["database_name"] = values[2]          // database_name text,
 	retmap["process_id"] = values[3]             // process_id integer,
