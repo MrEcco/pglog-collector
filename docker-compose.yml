@@ -36,3 +36,8 @@ services:
     stop_grace_period: 1s
     volumes:
     - "/var/log/postgresql:/var/log/postgresql:ro"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10240k"
+        max-file: "5"
