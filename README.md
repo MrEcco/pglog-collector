@@ -2,6 +2,16 @@
 
 This is little app for collect logs from postgres csv logs to json. This is implement like pipeline-to-pipeline formatter. Logs ready for inject to graylog (via fluent, by example).
 
+## Docker
+
+See images here:
+
+```
+mrecco/logrotate:v1.0.0
+mrecco/pglog-collector:v1.1.0
+mrecco/fluentd:v1.3.3
+```
+
 ## Configuration
 
 ### Postgres

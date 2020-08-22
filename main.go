@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"os"
 	"regexp"
 	"strings"
 
@@ -22,7 +23,13 @@ func main() {
 	var timestampRegexp *regexp.Regexp
 	timestampRegexp, _ = regexp.Compile("^\\d{4}-\\d{2}-\\d{2}\\ \\d{2}:\\d{2}:\\d{2}\\.\\d{3}")
 
-	csvlog, err := tail.TailFile(*filename, tail.Config{Follow: true})
+	csvlog, err := tail.TailFile(*filename, tail.Config{
+		Follow: true,
+		Location: &tail.SeekInfo{
+			Offset: 0,
+			Whence: os.SEEK_END,
+		},
+	})
 	if err != nil {
 		panic(err.Error())
 	}
@@ -134,7 +141,7 @@ func convertToMap(values []string) map[string]string {
 	retmap["query"] = values[18]                 // query text,
 	retmap["query_pos"] = values[19]             // query_pos integer,
 	retmap["location"] = values[20]              // location text,
-	retmap["application_name"] = values[21]      // application_name text,
+	// retmap["application_name"] = values[21]      // application_name text, // can case errors in some elasticsearch configurations
 	return retmap
 }
 

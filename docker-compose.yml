@@ -1,6 +1,5 @@
-version: '3.0'
+version: '3.7'
 services:
-
   fluentd:
     container_name: fluentd
     image: mrecco/fluentd:v1.3.3
@@ -26,10 +25,10 @@ services:
     - "/run/log/journal:/var/log/journal"
     - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
     - "/var/log:/var/log"
+    restart: on-failure
 
   pglog-collector:
-    container_name: pglog-collector
-    image: mrecco/pglog-collector:v1.0.0
+    image: mrecco/pglog-collector:v1.1.0
     command:
     - "-f"
     - "/var/log/postgresql/postgresql.csv"
@@ -39,5 +38,15 @@ services:
     logging:
       driver: "json-file"
       options:
-        max-size: "10240k"
-        max-file: "5"
+        max-size: "64M" # 1G logs, for less than 2 hours of cold load
+        max-file: "16"
+    restart: on-failure
+
+  pglog-rotation:
+    image: mrecco/logrotate:v1.0.0
+    links:
+    - pglog-collector:pglog-collector # Start it at first
+    stop_grace_period: 1s
+    volumes:
+    - "./volumes/logrotate:/etc/jobber:ro"
+    restart: on-failure

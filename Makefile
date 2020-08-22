@@ -1,16 +1,12 @@
 DOCKERNAME=mrecco/pglog-collector
-DOCKERTAG=v1.0.0
-DOCKERFILE=Dockerfile
-
-run:
-	@go run main.go
+DOCKERTAG=v1.1.0
+DOCKERFILE=./Dockerfile
 
 build:
-	@go build -o pglog-collector main.go
-
-docker-build:
 	@docker build -f $(DOCKERFILE) -t $(DOCKERNAME):$(DOCKERTAG) .
 
-test:
-	@echo Haha! Have no tests. :(
-	# @go test .
+push:
+	@docker push $(DOCKERNAME):$(DOCKERTAG)
+
+rmi:
+	@docker rmi $(DOCKERNAME):$(DOCKERTAG)

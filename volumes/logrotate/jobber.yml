@@ -1,0 +1,7 @@
+version: "1.4"
+jobs:
+  PGLogRotate:
+    cmd: |-
+      /usr/sbin/logrotate /etc/jobber/logrotate.conf
+    onError: Continue
+    time: '0 0 *' # each hour
